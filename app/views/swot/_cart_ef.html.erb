@@ -1,0 +1,16 @@
+<h1>Можливості та загрози</h1>
+<table>
+	<%= render(:partial => "cart_item_ot" , :collection => @cart_ef.item_ots) %>
+	
+</table>
+
+
+<h1>Сильні та слабкі сторони</h1>
+<table>
+	<%= render(:partial => "cart_item_sw" , :collection => @cart_ef.item_sws) %>
+	
+
+</table>
+
+<p><%= button_to "Очистити список" , :action => :empty_cart_events %></p>
+<p><%= button_to "Згенерувати SWOT-матрицю" , :action => :checkout %></p>

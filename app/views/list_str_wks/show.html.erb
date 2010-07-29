@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @list_str_wk.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @list_str_wk.description %>
+</p>
+
+<p>
+  <b>Feature type:</b>
+  <%=h @list_str_wk.feature_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_list_str_wk_path(@list_str_wk) %> |
+<%= link_to 'Back', list_str_wks_path %>

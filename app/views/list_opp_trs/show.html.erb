@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @list_opp_tr.name %>
+</p>
+
+
+<p>
+  <b>Description:</b>
+  <%=h @list_opp_tr.description %>
+</p>
+
+<p>
+	<b>Type of event:</b>
+  <%=h @list_opp_tr.opp_tr_type%>
+</p>
+
+<%= link_to 'Edit', edit_list_opp_tr_path(@list_opp_tr) %> |
+<%= link_to 'Back', list_opp_trs_path %>

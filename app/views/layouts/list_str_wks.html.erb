@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>Pragprog Books Online Store</title>
+  <%= stylesheet_link_tag "depot3", :media => "all" %>
+  <%= javascript_include_tag :defaults %>
+</head>
+<body id="store">
+	<!--<div id="q-menu">
+				<a href="http://www....">Home</a>
+      			<a href="http://www..../faq">Questions</a>
+     			<a href="http://www..../news">News</a>
+      			<a href="http://www..../contact">Contact</a>
+      	</div>	-->
+  <div id="banner">
+    <%= image_tag("logo.png") %>
+    <%= @page_title || "Scenario analysis" %>
+  </div>  
+  
+  
+  
+  <div id="columns">
+    <div id="side">
+    	<div id="cart">
+    	 <%= render(:partial => "cart_ef", :object => @cart_ef) %>
+      
+	  </div>
+	<table>
+			
+			<td>
+				<%=link_to 'Можливості та загрози',list_opp_trs_path%><br />
+				<%=link_to 'Сильні та слабкі сторони',list_str_wks_path%><br />
+				<a href="swot">SWOT-замовлення</a>
+				</td>
+		</table>
+		 </div>
+    <div id="main">
+    	<% if flash[:notice] %>
+			<div id="notice"><%= flash[:notice]%></div>
+		<%end%>
+		
+      <%= yield :layout %>
+    </div>
+  </div>
+</body>
+</html>

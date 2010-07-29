@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<h1>Generated scenarios</h1>
+
+<fieldset>
+		<div class="entry">
+		<h3><%=h @swot.name %></h3>
+		<h4><%=h @swot.name_org%></h4>
+		<P><%=h @swot.address%></P>
+		<p><%=h @swot.email %></p> 
+		<%= link_to 'Edit', :action =>:edit_matrix, :id =>@swot %>	
+		</div>	
+	</fieldset>
+
+<table>
+	<tr>
+		<td>
+		<table>
+			<% @mt.each do |l| %>
+			<tr>
+				<% l.each do |q|%>
+				<td>
+					<fieldset>
+						<%=h q%>
+					</fieldset>
+				</td>
+				<%end%>
+			</tr>
+			<%end%>
+		</table>
+		</td>
+		
+		<td>
+			<fieldset>
+				X
+			</fieldset>
+		</td>
+		
+		<td>
+			<table>
+			<% @b.each do |l| %>
+			<tr>
+				<% l.each do |q|%>
+				<td>
+					<fieldset>
+						<%=h q%>
+					</fieldset>
+				</td>
+				<%end%>
+			</tr>
+			<%end%>
+			</table>
+		</td>
+		
+		<td>
+			<fieldset>
+				=
+			</fieldset>
+		</td>
+		
+		
+		<td>
+			<table>
+				<tr>
+  					<%for matrix_item in @matrix_items.find_all{|item| item.swot==@swot}.find_all{|item| item.y==0}%>
+						<td><%=h matrix_item.list_opp_tr.name%></td>
+					<%end%>
+  				</tr>
+				
+				<% @scens.each do |l| %>
+				<tr>
+					<% l.each do |q|%>
+					<td>
+						<fieldset>
+							<%=h q%>
+						</fieldset>
+					</td>
+					<%end%>
+				</tr>
+				<%end%>
+				
+			</table>
+		</td>
+		
+	</tr>
+</table>

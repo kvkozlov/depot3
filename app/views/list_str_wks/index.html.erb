@@ -1,0 +1,32 @@
+<h1>Listing of features(Strongness/Weakness)</h1>
+
+<a href="list_opp_trs/new" class="button"><span class="add">Add (Strong/Weak)ness</span></a> 
+
+<table>
+<% for list_str_wk in @list_str_wks %>
+  <tr>
+    
+	<fieldset>
+	<div class="entry">
+		<h3><%=h list_str_wk.name %></h3>
+	<h4><%=h list_str_wk.feature_type%></h4>
+	<%=h list_str_wk.description%>
+	
+    <%= link_to 'Show', list_str_wk %>
+    <%= link_to 'Edit', edit_list_str_wk_path(list_str_wk) %>
+    <%= link_to 'Destroy', list_str_wk, :confirm => 'Are you sure?', :method => :delete %>
+		
+	
+	<% form_remote_tag :url => { :action => :add_to_cart_features, :id => list_str_wk } do %>
+		<%= submit_tag "Add to Cart-Events-Features" %>
+	<% end %>
+	
+	</div>
+	</fieldset>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+

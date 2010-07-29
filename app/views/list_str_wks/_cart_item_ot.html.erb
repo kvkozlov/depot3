@@ -1,0 +1,8 @@
+<% if cart_item_ot == @current_item %>
+  <tr id="current_item">
+<% else %>
+  <tr>
+<% end %>
+<%=h cart_item_ot.name %><br />
+</tr>
+

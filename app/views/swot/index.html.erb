@@ -1,0 +1,64 @@
+<h1>Listing of SWOTs</h1>
+
+<table>
+ 
+
+<% for swot in @swots %>
+
+<tr>	
+	
+  	<td>  	
+	<fieldset>
+		<div class="entry">
+		<h3><%=h swot.name %></h3>
+		<h4><%=h swot.name_org%></h4>
+		<P><%=h swot.address%></P>
+		<p><%=h swot.email %></p> 
+		<%= link_to 'Edit', :action =>:edit_matrix, :id =>swot %>	
+		<%= link_to 'Generate scenario', :action =>:generate_scenario, :id =>swot %>	  
+		</div>	
+	</fieldset>		
+  </td>
+  
+  <td>
+  	<table>
+  		<tr>
+  			<td><%=h @matrix_items.find_all{|item| item.swot==swot}.size%> елементів в матриці</td>
+  			<%for matrix_item in @matrix_items.find_all{|item| item.swot==swot}.find_all{|item| item.x==0}%>
+				<td><%=h matrix_item.list_str_wk.name%></td>
+			<%end%>
+  		</tr>
+  		<tr>
+  			<td>
+  				<%for matrix_itemm in @matrix_items.find_all{|item| item.swot==swot}.find_all{|item| item.y==0}%>
+					<tr>
+						<td>
+						<%=h matrix_itemm.list_opp_tr.name%><br />
+						</td>
+						
+						<% for matrix_itemmm in @matrix_items.find_all{|item| item.swot==swot}.find_all{|item| (item.x==matrix_itemm.x)&&(item.list_opp_tr.name==matrix_itemm.list_opp_tr.name)}%>
+							<td>
+								<fieldset>
+								<%=h matrix_itemmm.list_opp_tr.name%><br />
+								<%=h matrix_itemmm.list_str_wk.name%><br />
+								<%=h matrix_itemmm.x%><%=h matrix_itemmm.y%>-<%=h matrix_itemmm.id%><br />
+								Value: <%=h matrix_itemmm.value%>
+								
+							</fieldset>
+							</td>
+						<%end%>
+						
+					</tr>
+				<%end%>				
+  			</td>			
+					
+  		</tr>
+		
+  	</table>
+  </td>
+</tr>
+
+<% end %>
+</table>
+
+

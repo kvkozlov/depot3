@@ -1,0 +1,33 @@
+<div class="depot-form">
+  
+  <%= error_messages_for 'swot' %>
+  
+  <% form_for :swot, :url => { :action => :save_swot } do |form| %>
+    <fieldset>
+      <legend>Please Enter Your Details</legend>
+
+      <div>
+        <%= form.label :name, "Name:" %>
+        <%= form.text_field :name, :size => 40 %>
+      </div>
+	  
+	  <div>
+        <%= form.label :name_org, "Name of organisation:" %>
+        <%= form.text_field :name_org, :size => 40 %>
+      </div>
+
+      <div>
+        <%= form.label :address, "Address:" %>
+        <%= form.text_area :address, :rows => 3, :cols => 40 %>
+      </div>
+
+      <div>
+        <%= form.label :email, "E-Mail:" %>
+        <%= form.text_field :email, :size => 40 %>
+      </div>
+
+      
+      <%= submit_tag "Next step", :class => "submit" %>
+    </fieldset>
+  <% end %>  
+</div>

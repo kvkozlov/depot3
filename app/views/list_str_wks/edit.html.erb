@@ -1,0 +1,37 @@
+<div class="depot-form">
+
+<fieldset>
+      <legend>Please Edit This Strongness|Weakness</legend>
+
+<% form_for(@list_str_wk) do |f| %>
+  <%= f.error_messages %>
+
+  <div>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, :size => 40 %>
+  </div>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description,:rows => 3, :cols => 40 %>
+  </p>
+  
+  <div>
+        <%= f.label :feature_type, "Select an feature:" %>
+        <%=
+          f.select :feature_type,
+                       ListStrWk::FEATURE_TYPES, 
+                      :prompt => "Select an feature"
+        %>
+      </div>
+  
+   <p>
+    <%= f.submit "Update", :class => "submit" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @list_str_wk %> |
+<%= link_to 'Back', list_str_wks_path %>
+
+</fieldset>
+
+</div>

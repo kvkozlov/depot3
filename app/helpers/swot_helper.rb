@@ -1,0 +1,2 @@
+module SwotHelper
+end

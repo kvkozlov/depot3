@@ -1,0 +1,30 @@
+<h1>Listing of events(Opportunities/Treats)</h1>
+
+<a href="list_opp_trs/new" class="button"><span class="add">Add Opportunity/Treat</span></a> 
+
+<table>
+ 
+
+<% for list_opp_tr in @list_opp_trs %>
+  <tr>
+    
+	<fieldset>
+	<div class="entry">
+		<h3><%=h list_opp_tr.name %></h3>
+	<h4><%=h list_opp_tr.opp_tr_type%></h4>
+	<%=h list_opp_tr.description%>
+    <%= link_to 'Show', list_opp_tr %>
+    <%= link_to 'Edit', edit_list_opp_tr_path(list_opp_tr) %>
+    <%= link_to 'Destroy', list_opp_tr, :confirm => 'Are you sure?', :method => :delete %>
+		
+	<% form_remote_tag :url => { :action => :add_to_cart_events, :id => list_opp_tr } do %>
+		<%= submit_tag "Add to Cart-Events-Features" %>
+	<% end %>	
+			
+	</div>
+	</fieldset>
+  </tr>
+<% end %>
+</table>
+
+<br />

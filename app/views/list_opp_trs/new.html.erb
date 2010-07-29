@@ -1,0 +1,41 @@
+<div class="depot-form">
+
+<fieldset>
+      <legend>Please Create New Opportunity|Treat</legend>
+
+
+<% form_for(@list_opp_tr) do |f| %>
+  <%= f.error_messages %>
+
+	<p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, :size => 40  %>
+  </p>
+
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description,:rows => 3, :cols => 40 %>
+  </p>
+  
+  	<div>
+        <%= f.label :opp_tr_type, "Select an event:" %>
+        <%=
+          f.select :opp_tr_type,
+                       ListOppTr::EVENT_TYPES, 
+                      :prompt => "Select an event"
+        %>
+      </div>
+  
+  
+  <p>
+    <%= f.submit "Create", :class => "submit"  %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', list_opp_trs_path %>
+
+
+
+</fieldset>
+
+</div>
